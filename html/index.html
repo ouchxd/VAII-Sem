@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoservis</title>
+    <!-- Kniznica s ikonami -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">LOGO</div>
+    <div class="contact-info">
+        <div class="contact-item">
+            <i class="fa-regular fa-envelope"></i>
+            <span>xxxxxx@xxxxx.xx</span>
+        </div>
+        <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>+421 xxx xxx xxxx</span>
+        </div>
+        <div class="contact-item">
+            <i class="fa-regular fa-clock"></i>
+            <span>Pon - Pia (8:00 - 16)</span>
+        </div>
+    </div>
+    <div class="user-info">
+        <span>Filip Zvonek - technik</span><br>
+        <button>Odhlásiť sa <i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#">Kontakt</a></li>
+        <li><a href="#">Recenzie</a></li>
+        <li><a href="#">O nás</a></li>
+        <li><a href="#">Služby <i class="fa-solid fa-caret-down"></i></a></li>
+        <li><a href="#">Cenník</a></li>
+        <li style="margin-left: auto;"><a href="#">SK <i class="fa-solid fa-caret-down"></i></a></li>
+    </ul>
+</nav>
+
+<main>
+    <aside class="filter-panel">
+        <h2>FILTER</h2>
+        <form action="#" method="GET">
+            <div class="form-group">
+                <label>ŠPZ</label>
+                <input type="text" placeholder="Zadajte ŠPZ">
+            </div>
+            <div class="form-group">
+                <label>Zákazník</label>
+                <input type="text" placeholder="Zadajte zákazníka">
+            </div>
+            <div class="form-group">
+                <label>ID</label>
+                <input type="text" placeholder="Zadajte ID">
+            </div>
+            <div class="form-group">
+                <label>Stav</label>
+                <select>
+                    <option>Vyberte stav</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Priorita</label>
+                <select>
+                    <option>Vyberte prioritu</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Značka vozidla</label>
+                <input type="text" placeholder="Zadajte značku">
+            </div>
+            <button type="button" class="btn-apply">Aplikovať filter</button>
+        </form>
+    </aside>
+
+    <section class="table-section">
+        <div style="overflow-x: auto; margin-bottom: 20px;">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Vozidlo (ŠPZ)</th>
+                    <th>Zákazník</th>
+                    <th>Stav</th>
+                    <th>Priorita</th>
+                    <th>Popis poruchy</th>
+                    <th>Akcie</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>#101</td>
+                    <td>Audi A4 (ZA123AB)</td>
+                    <td>Ján Novák</td>
+                    <td>V oprave</td>
+                    <td>Vysoká</td>
+                    <td>Búchanie v prednej náprave</td>
+                    <td class="actions">
+                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-eye"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>#102</td>
+                    <td>VW Golf (BL999XY)</td>
+                    <td>Peter Múdry</td>
+                    <td>Čaká</td>
+                    <td>Normálna</td>
+                    <td>Výmena oleja a filtrov</td>
+                    <td class="actions">
+                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-eye"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>#103</td>
+                    <td>Škoda Octavia (MT456CD)</td>
+                    <td>Marek Urban</td>
+                    <td>Hotové</td>
+                    <td>Nízka</td>
+                    <td>Diagnostika a výmena sviečok</td>
+                    <td class="actions">
+                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-eye"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>#104</td>
+                    <td>Honda Prelude (SE954DI)</td>
+                    <td>Filip Zvonek</td>
+                    <td>V oprave</td>
+                    <td>Vysoká</td>
+                    <td>Oprava brzdy a výmena kotúčov</td>
+                    <td class="actions">
+                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-eye"></i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <i class="fa-solid fa-angle-left"></i>
+            <i class="fa-solid fa-angles-left"></i>
+            <span>1</span>
+            <i class="fa-solid fa-angles-right"></i>
+            <i class="fa-solid fa-angle-right"></i>
+        </div>
+    </section>
+</main>
+
+<footer>
+    &copy; 2026 Autoservis - Všetky práva vyhradené
+</footer>
+
+</body>
+</html>

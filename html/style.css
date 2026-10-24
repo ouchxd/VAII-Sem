@@ -1,0 +1,279 @@
+:root {
+    --bg-color: #8da6c3;
+    --header-bg: #901a35;
+    --nav-bg: #4a5c6d;
+    --footer-bg: #4a5c6d;
+    --panel-bg: #e6d3a8;
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --border-color: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--panel-bg);
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    background-color: #ccc;
+    color: var(--text-dark);
+    padding: 10px 30px;
+    border: 1px solid var(--text-dark);
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.contact-info {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-info {
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.user-info button {
+    background-color: #ccc;
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* --- NAVIGÁCIA (NAV) --- */
+nav {
+    background-color: var(--nav-bg);
+    color: var(--text-light);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    /* Na mobiloch 1 stĺpec */
+    grid-template-columns: 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+aside.filter-panel {
+    background-color: var(--panel-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.filter-panel h2 {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.btn-apply {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+section.table-section {
+    background-color: var(--panel-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    min-width: 700px;
+}
+
+/* --- HLAVIČKA TABUĽKY --- */
+th {
+    background-color: var(--header-bg);
+    color: var(--panel-bg);
+    padding: 15px;
+    text-align: center;
+    border-top: 2px solid #310811;
+    border-bottom: 2px solid #310811;
+    border-right: 1px solid #4a0c19;
+}
+th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left: 2px solid #310811;
+}
+th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 2px solid #310811;
+}
+
+tbody tr {
+    background-color: transparent;
+}
+
+td {
+    background-color: #fff;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.95rem;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+tbody tr td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-weight: bold;
+    border-left: 2px solid var(--border-color);
+}
+tbody tr td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 2px solid var(--border-color);
+}
+
+.actions i {
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 1.1rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.pagination span {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: #ccc;
+    text-align: left;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    margin-top: auto;
+}
+
+@media screen and (min-width: 992px) {
+    main {
+        grid-template-columns: 250px 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .user-info {
+        text-align: center;
+    }
+}
