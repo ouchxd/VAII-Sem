@@ -1,0 +1,474 @@
+:root {
+    --bg-color: #8da6c3;
+    --header-bg: #901a35;
+    --nav-bg: #4a5c6d;
+    --footer-bg: #4a5c6d;
+    --panel-bg: #e6d3a8;
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --border-color: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--panel-bg);
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    background-color: #ccc;
+    color: var(--text-dark);
+    padding: 10px 30px;
+    border: 1px solid var(--text-dark);
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.contact-info {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-info {
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.user-info button {
+    background-color: #ccc;
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* --- NAVIGÁCIA (NAV) --- */
+nav {
+    background-color: var(--nav-bg);
+    color: var(--text-light);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    /* Na mobiloch 1 stĺpec */
+    grid-template-columns: 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+aside.filter-panel {
+    background-color: var(--panel-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.filter-panel h2 {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.btn-apply {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+section.table-section {
+    background-color: var(--panel-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-wrapper {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+/* --- HLAVIČKA TABUĽKY --- */
+th {
+    background-color: var(--header-bg);
+    color: var(--panel-bg);
+    padding: 15px;
+    text-align: center;
+    border-top: 2px solid #310811;
+    border-bottom: 2px solid #310811;
+    border-right: 1px solid #4a0c19;
+}
+th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left: 2px solid #310811;
+}
+th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 2px solid #310811;
+}
+
+tbody tr {
+    background-color: transparent;
+}
+
+td {
+    background-color: #fff;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.95rem;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+tbody tr td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-weight: bold;
+    border-left: 2px solid var(--border-color);
+}
+tbody tr td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 2px solid var(--border-color);
+}
+
+.actions i {
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 1.1rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.pagination span {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: #ccc;
+    text-align: left;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    margin-top: auto;
+}
+
+@media screen and (min-width: 992px) {
+    main {
+        grid-template-columns: 250px 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .user-info {
+        text-align: center;
+    }
+
+    /* Transformácia tabuľky na mobilné karty */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    td {
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+        border: 1px solid var(--border-color);
+        border-bottom: none;
+        border-radius: 0 !important;
+    }
+
+    tbody tr td:first-child {
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;
+    }
+
+    tbody tr td:last-child {
+        border-bottom-left-radius: 10px !important;
+        border-bottom-right-radius: 10px !important;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+        color: var(--header-bg);
+    }
+}
+
+/* --- Hlavný obal obsahu --- */
+.obsah-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* --- Hero Sekcia (Uvítanie) --- */
+.hero-sekcia {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    margin-bottom: 3rem;
+}
+
+.hero-sekcia h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.hero-sekcia p {
+    font-size: 1.2rem;
+    color: #34495e;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tlačidlo */
+.btn-hlavne {
+    display: inline-block;
+    background-color: #9e1b32;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-hlavne:hover {
+    background-color: #7a1526;
+    color: white;
+}
+
+/* --- Sekcia Služieb (Grid) --- */
+.sekcia-nadpis {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.sluzby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.sluzba-karta {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.sluzba-karta:hover {
+    transform: translateY(-5px);
+}
+
+.ikona-sluzby {
+    font-size: 3rem;
+    color: #5d6d7e;
+    margin-bottom: 1rem;
+}
+
+.sluzba-karta h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.sluzba-karta p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- Stránka Kontakt --- */
+.kontakt-podnadpis {
+    text-align: center;
+    color: #555;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+.kontakt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.kontakt-info-box h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #9e1b32;
+    padding-bottom: 0.5rem;
+}
+
+.kontakt-info-box p {
+    margin-bottom: 1rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+.otvaracie-hodiny {
+    margin-top: 2rem;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #9e1b32;
+}
+
+.otvaracie-hodiny h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.kontakt-mapa-box iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

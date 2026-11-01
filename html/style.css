@@ -165,14 +165,17 @@ section.table-section {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    overflow-x: auto;
+}
+
+.table-wrapper {
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 10px;
-    min-width: 700px;
 }
 
 /* --- HLAVIČKA TABUĽKY --- */
@@ -275,5 +278,53 @@ footer {
     }
     .user-info {
         text-align: center;
+    }
+
+    /* Transformácia tabuľky na mobilné karty */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    td {
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+        border: 1px solid var(--border-color);
+        border-bottom: none;
+        border-radius: 0 !important;
+    }
+
+    tbody tr td:first-child {
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;
+    }
+
+    tbody tr td:last-child {
+        border-bottom-left-radius: 10px !important;
+        border-bottom-right-radius: 10px !important;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+        color: var(--header-bg);
     }
 }
