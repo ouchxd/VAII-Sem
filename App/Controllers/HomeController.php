@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\Zakazka;
+use Exception;
+use Framework\Http\HttpException;
 use Framework\Core\BaseController;
 use Framework\Http\Request;
 use Framework\Http\Responses\Response;
@@ -57,6 +60,12 @@ class HomeController extends BaseController
 
     public function sluzby(Request $request): Response
     {
-        return $this->html();
+        try {
+            $zakazky = Zakazka::getAll(orderBy: 'id');
+        } catch (Exception $e) {
+            throw new HttpException(500, 'DB Chyba: ' . $e->getMessage());
+        }
+
+        return $this->html(['zakazky' => $zakazky]);
     }
 }

@@ -74,7 +74,6 @@ header {
     margin-top: 5px;
 }
 
-/* --- NAVIGÁCIA (NAV) --- */
 nav {
     background-color: var(--nav-bg);
     color: var(--text-light);
@@ -107,7 +106,6 @@ main {
     padding: 20px;
     display: grid;
     gap: 20px;
-    /* Na mobiloch 1 stĺpec */
     grid-template-columns: 1fr;
     max-width: 1400px;
     margin: 0 auto;
@@ -178,7 +176,6 @@ table {
     border-spacing: 0 10px;
 }
 
-/* --- HLAVIČKA TABUĽKY --- */
 th {
     background-color: var(--header-bg);
     color: var(--panel-bg);
@@ -280,7 +277,6 @@ footer {
         text-align: center;
     }
 
-    /* Transformácia tabuľky na mobilné karty */
     table, thead, tbody, th, td, tr {
         display: block;
     }
@@ -329,14 +325,12 @@ footer {
     }
 }
 
-/* --- Hlavný obal obsahu --- */
 .obsah-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-/* --- Hero Sekcia (Uvítanie) --- */
 .hero-sekcia {
     text-align: center;
     padding: 4rem 2rem;
@@ -360,7 +354,6 @@ footer {
     margin-right: auto;
 }
 
-/* Tlačidlo */
 .btn-hlavne {
     display: inline-block;
     background-color: #9e1b32;
@@ -377,7 +370,6 @@ footer {
     color: white;
 }
 
-/* --- Sekcia Služieb (Grid) --- */
 .sekcia-nadpis {
     text-align: center;
     color: #2c3e50;
@@ -421,7 +413,6 @@ footer {
     line-height: 1.6;
 }
 
-/* --- Stránka Kontakt --- */
 .kontakt-podnadpis {
     text-align: center;
     color: #555;
@@ -471,4 +462,116 @@ footer {
     height: 100%;
     min-height: 300px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.table-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.btn-add, .btn-link {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: var(--bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.btn-add:hover, .btn-link:hover {
+    background-color: #fff;
+}
+
+.actions a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.empty-row {
+    font-style: italic;
+}
+
+main.form-main {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+    align-content: start;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.form-main .table-section {
+    padding: 30px;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+}
+
+.form-group textarea {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: 3px solid var(--header-bg);
+    outline-offset: 1px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.form-buttons .btn-apply,
+.form-buttons .btn-link {
+    flex: 1;
+    margin-top: 0;
+    padding: 12px;
+    text-align: center;
+    font-size: 1rem;
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--bg-color);
+}
+
+.form-buttons .btn-apply:not(.btn-link) {
+    background-color: var(--header-bg);
+    color: #fff;
+}
+
+.form-buttons .btn-apply:not(.btn-link):hover {
+    background-color: #6f1428;
+}
+
+.form-buttons .btn-link:hover {
+    background-color: #fff;
+}
+
+@media screen and (min-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .form-group.full {
+        grid-column: 1 / -1;
+    }
 }

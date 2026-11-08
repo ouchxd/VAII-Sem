@@ -8,7 +8,6 @@
     <p class="kontakt-podnadpis">Nájdete nás v priestoroch Fakulty riadenia a informatiky v Žiline.</p>
 
     <div class="kontakt-grid">
-        <!-- Ľavý stĺpec: Informácie -->
         <div class="kontakt-info-box">
             <h3>Autoservis - Servisné stredisko</h3>
             <p><strong>Adresa:</strong> Univerzitná 8215/1, 010 26 Žilina, Slovakia</p>
@@ -25,7 +24,6 @@
             </div>
         </div>
 
-        <!-- Pravý stĺpec: Mapa -->
         <div class="kontakt-mapa-box">
             <iframe
                     width="100%"

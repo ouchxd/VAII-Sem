@@ -1,6 +1,7 @@
 <?php
 
 /** @var \Framework\Support\LinkGenerator $link */
+/** @var \App\Models\Zakazka[] $zakazky */
 ?>
 
 <main>
@@ -40,6 +41,12 @@
     </aside>
 
     <section class="table-section">
+        <div class="table-toolbar">
+            <a href="<?= $link->url('zakazka.add') ?>" class="btn-add">
+                <i class="fa-solid fa-plus"></i> Pridať zákazku
+            </a>
+        </div>
+
         <div class="table-wrapper">
             <table>
                 <thead>
@@ -54,54 +61,30 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td data-label="ID">#101</td>
-                    <td data-label="Vozidlo (ŠPZ)">Audi A4 (ZA123AB)</td>
-                    <td data-label="Zákazník">Ján Novák</td>
-                    <td data-label="Stav">V oprave</td>
-                    <td data-label="Priorita">Vysoká</td>
-                    <td data-label="Popis poruchy">Búchanie v prednej náprave</td>
-                    <td data-label="Akcie" class="actions">
-                        <i class="fa-solid fa-trash-can"></i>
-                        <i class="fa-solid fa-eye"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="ID">#102</td>
-                    <td data-label="Vozidlo (ŠPZ)">VW Golf (BL999XY)</td>
-                    <td data-label="Zákazník">Peter Múdry</td>
-                    <td data-label="Stav">Čaká</td>
-                    <td data-label="Priorita">Normálna</td>
-                    <td data-label="Popis poruchy">Výmena oleja a filtrov</td>
-                    <td data-label="Akcie" class="actions">
-                        <i class="fa-solid fa-trash-can"></i>
-                        <i class="fa-solid fa-eye"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="ID">#103</td>
-                    <td data-label="Vozidlo (ŠPZ)">Škoda Octavia (MT456CD)</td>
-                    <td data-label="Zákazník">Marek Urban</td>
-                    <td data-label="Stav">Hotové</td>
-                    <td data-label="Priorita">Nízka</td>
-                    <td data-label="Popis poruchy">Diagnostika a výmena sviečok</td>
-                    <td data-label="Akcie" class="actions">
-                        <i class="fa-solid fa-trash-can"></i>
-                        <i class="fa-solid fa-eye"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="ID">#104</td>
-                    <td data-label="Vozidlo (ŠPZ)">Honda Prelude (SE954DI)</td>
-                    <td data-label="Zákazník">Filip Zvonek</td>
-                    <td data-label="Stav">V oprave</td>
-                    <td data-label="Priorita">Vysoká</td>
-                    <td data-label="Popis poruchy">Oprava brzdy a výmena kotúčov</td>
-                    <td data-label="Akcie" class="actions">
-                        <i class="fa-solid fa-trash-can"></i>
-                        <i class="fa-solid fa-eye"></i>
-                    </td>
-                </tr>
+                <?php foreach ($zakazky as $zakazka): ?>
+                    <tr>
+                        <td data-label="ID">#<?= e($zakazka->getId()) ?></td>
+                        <td data-label="Vozidlo (ŠPZ)"><?= e($zakazka->getVozidlo()) ?> (<?= e($zakazka->getSpz()) ?>)</td>
+                        <td data-label="Zákazník"><?= e($zakazka->getZakaznik()) ?></td>
+                        <td data-label="Stav"><?= e($zakazka->getStav()) ?></td>
+                        <td data-label="Priorita"><?= e($zakazka->getPriorita()) ?></td>
+                        <td data-label="Popis poruchy"><?= e($zakazka->getPopis()) ?></td>
+                        <td data-label="Akcie" class="actions">
+                            <a href="<?= $link->url('zakazka.delete', ['id' => $zakazka->getId()]) ?>"
+                               title="Odstrániť" onclick="return confirm('Naozaj odstrániť zákazku #<?= e($zakazka->getId()) ?>?');">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </a>
+                            <a href="<?= $link->url('zakazka.edit', ['id' => $zakazka->getId()]) ?>" title="Upraviť">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                <?php if (empty($zakazky)): ?>
+                    <tr>
+                        <td colspan="7" class="empty-row">Zatiaľ nie sú evidované žiadne zákazky.</td>
+                    </tr>
+                <?php endif; ?>
                 </tbody>
             </table>
         </div>
