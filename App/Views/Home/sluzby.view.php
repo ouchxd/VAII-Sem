@@ -2,6 +2,8 @@
 
 /** @var \Framework\Support\LinkGenerator $link */
 /** @var \App\Models\Zakazka[] $zakazky */
+/** @var int $strana aktuálna strana */
+/** @var int $pocetStran celkový počet strán */
 ?>
 
 <main>
@@ -89,12 +91,34 @@
             </table>
         </div>
 
-        <div class="pagination">
-            <i class="fa-solid fa-angle-left"></i>
-            <i class="fa-solid fa-angles-left"></i>
-            <span>1</span>
-            <i class="fa-solid fa-angles-right"></i>
-            <i class="fa-solid fa-angle-right"></i>
+        <?php
+        $od = max(1, $strana - 2);
+        $do = min($pocetStran, $strana + 2);
+        ?>
+        <div class="pagination" role="navigation" aria-label="Stránkovanie">
+            <?php if ($strana > 1): ?>
+                <a href="<?= $link->url('home.sluzby', ['page' => 1]) ?>" title="Prvá strana"><i class="fa-solid fa-angles-left"></i></a>
+                <a href="<?= $link->url('home.sluzby', ['page' => $strana - 1]) ?>" title="Predošlá strana"><i class="fa-solid fa-angle-left"></i></a>
+            <?php else: ?>
+                <i class="fa-solid fa-angles-left disabled"></i>
+                <i class="fa-solid fa-angle-left disabled"></i>
+            <?php endif; ?>
+
+            <?php for ($i = $od; $i <= $do; $i++): ?>
+                <?php if ($i === $strana): ?>
+                    <span class="page current" aria-current="page"><?= $i ?></span>
+                <?php else: ?>
+                    <a class="page" href="<?= $link->url('home.sluzby', ['page' => $i]) ?>"><?= $i ?></a>
+                <?php endif; ?>
+            <?php endfor; ?>
+
+            <?php if ($strana < $pocetStran): ?>
+                <a href="<?= $link->url('home.sluzby', ['page' => $strana + 1]) ?>" title="Nasledujúca strana"><i class="fa-solid fa-angle-right"></i></a>
+                <a href="<?= $link->url('home.sluzby', ['page' => $pocetStran]) ?>" title="Posledná strana"><i class="fa-solid fa-angles-right"></i></a>
+            <?php else: ?>
+                <i class="fa-solid fa-angle-right disabled"></i>
+                <i class="fa-solid fa-angles-right disabled"></i>
+            <?php endif; ?>
         </div>
     </section>
 </main>

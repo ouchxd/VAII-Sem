@@ -575,3 +575,33 @@ main.form-main {
         grid-column: 1 / -1;
     }
 }
+
+.pagination a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.pagination a.page {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.pagination a:hover {
+    opacity: 0.7;
+}
+
+.pagination span.current {
+    background-color: var(--header-bg);
+    color: #fff;
+}
+
+.pagination .disabled {
+    opacity: 0.3;
+}
