@@ -2,9 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\Zakazka;
-use Exception;
-use Framework\Http\HttpException;
 use Framework\Core\BaseController;
 use Framework\Http\Request;
 use Framework\Http\Responses\Response;
@@ -56,26 +53,5 @@ class HomeController extends BaseController
     public function contact(Request $request): Response
     {
         return $this->html();
-    }
-
-    private const ZAKAZKY_NA_STRANU = 10;
-
-    public function sluzby(Request $request): Response
-    {
-        try {
-            $celkovo = Zakazka::getCount();
-            $pocetStran = max(1, (int)ceil($celkovo / self::ZAKAZKY_NA_STRANU));
-            $strana = min(max(1, (int)$request->value('page')), $pocetStran);
-
-            $zakazky = Zakazka::getAll(
-                orderBy: 'id',
-                limit: self::ZAKAZKY_NA_STRANU,
-                offset: ($strana - 1) * self::ZAKAZKY_NA_STRANU
-            );
-        } catch (Exception $e) {
-            throw new HttpException(500, 'DB Chyba: ' . $e->getMessage());
-        }
-
-        return $this->html(compact('zakazky', 'strana', 'pocetStran'));
     }
 }

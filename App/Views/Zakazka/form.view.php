@@ -2,6 +2,7 @@
 
 /** @var \Framework\Support\LinkGenerator $link */
 /** @var \App\Models\Zakazka $zakazka */
+/** @var \App\Models\Auto[] $auta */
 
 use App\Models\Zakazka;
 
@@ -19,14 +20,18 @@ $jeNova = $zakazka->getId() === null;
 
             <div class="form-grid">
                 <div class="form-group">
-                    <label for="vozidlo">Vozidlo (značka a model)</label>
-                    <input type="text" id="vozidlo" name="vozidlo" maxlength="100" required
-                           placeholder="napr. Audi A4" value="<?= e($zakazka->getVozidlo()) ?>">
-                </div>
-                <div class="form-group">
-                    <label for="spz">ŠPZ</label>
-                    <input type="text" id="spz" name="spz" maxlength="20" required
-                           placeholder="napr. ZA123AB" value="<?= e($zakazka->getSpz()) ?>">
+                    <label for="spz">Vozidlo (ŠPZ)</label>
+                    <select id="spz" name="spz" required>
+                        <option value="">Vyberte vozidlo</option>
+                        <?php foreach ($auta as $auto): ?>
+                            <option value="<?= e($auto->getSpz()) ?>" <?= $zakazka->getSpz() === $auto->getSpz() ? 'selected' : '' ?>>
+                                <?= e($auto->getVozidlo()) ?> (<?= e($auto->getSpz()) ?>)
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <small class="form-hint">
+                        Vozidlo nie je v zozname?
+                        <button type="submit" formaction="<?= $link->url('auto.add') ?>" formnovalidate class="link-button">Pridajte ho</button>.                    </small>
                 </div>
                 <div class="form-group">
                     <label for="zakaznik">Zákazník</label>
@@ -62,7 +67,7 @@ $jeNova = $zakazka->getId() === null;
 
             <div class="form-buttons">
                 <button type="submit" class="btn-apply">Uložiť</button>
-                <a href="<?= $link->url('home.sluzby') ?>" class="btn-apply btn-link">Zrušiť</a>
+                <a href="<?= $link->url('zakazka.index') ?>" class="btn-apply btn-link">Zrušiť</a>
             </div>
         </form>
     </section>

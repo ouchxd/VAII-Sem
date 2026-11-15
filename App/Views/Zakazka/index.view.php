@@ -66,8 +66,7 @@
                 <?php foreach ($zakazky as $zakazka): ?>
                     <tr>
                         <td data-label="ID">#<?= e($zakazka->getId()) ?></td>
-                        <td data-label="Vozidlo (ŠPZ)"><?= e($zakazka->getVozidlo()) ?> (<?= e($zakazka->getSpz()) ?>)</td>
-                        <td data-label="Zákazník"><?= e($zakazka->getZakaznik()) ?></td>
+                        <td data-label="Vozidlo (ŠPZ)"><?= e($zakazka->getAuto()?->getVozidlo()) ?> (<?= e($zakazka->getSpz()) ?>)</td>                        <td data-label="Zákazník"><?= e($zakazka->getZakaznik()) ?></td>
                         <td data-label="Stav"><?= e($zakazka->getStav()) ?></td>
                         <td data-label="Priorita"><?= e($zakazka->getPriorita()) ?></td>
                         <td data-label="Popis poruchy"><?= e($zakazka->getPopis()) ?></td>
@@ -97,8 +96,8 @@
         ?>
         <div class="pagination" role="navigation" aria-label="Stránkovanie">
             <?php if ($strana > 1): ?>
-                <a href="<?= $link->url('home.sluzby', ['page' => 1]) ?>" title="Prvá strana"><i class="fa-solid fa-angles-left"></i></a>
-                <a href="<?= $link->url('home.sluzby', ['page' => $strana - 1]) ?>" title="Predošlá strana"><i class="fa-solid fa-angle-left"></i></a>
+                <a href="<?= $link->url('zakazka.index', ['page' => 1]) ?>" title="Prvá strana"><i class="fa-solid fa-angles-left"></i></a>
+                <a href="<?= $link->url('zakazka.index', ['page' => $strana - 1]) ?>" title="Predošlá strana"><i class="fa-solid fa-angle-left"></i></a>
             <?php else: ?>
                 <i class="fa-solid fa-angles-left disabled"></i>
                 <i class="fa-solid fa-angle-left disabled"></i>
@@ -108,13 +107,13 @@
                 <?php if ($i === $strana): ?>
                     <span class="page current" aria-current="page"><?= $i ?></span>
                 <?php else: ?>
-                    <a class="page" href="<?= $link->url('home.sluzby', ['page' => $i]) ?>"><?= $i ?></a>
+                    <a class="page" href="<?= $link->url('zakazka.index', ['page' => $i]) ?>"><?= $i ?></a>
                 <?php endif; ?>
             <?php endfor; ?>
 
             <?php if ($strana < $pocetStran): ?>
-                <a href="<?= $link->url('home.sluzby', ['page' => $strana + 1]) ?>" title="Nasledujúca strana"><i class="fa-solid fa-angle-right"></i></a>
-                <a href="<?= $link->url('home.sluzby', ['page' => $pocetStran]) ?>" title="Posledná strana"><i class="fa-solid fa-angles-right"></i></a>
+                <a href="<?= $link->url('zakazka.index', ['page' => $strana + 1]) ?>" title="Nasledujúca strana"><i class="fa-solid fa-angle-right"></i></a>
+                <a href="<?= $link->url('zakazka.index', ['page' => $pocetStran]) ?>" title="Posledná strana"><i class="fa-solid fa-angles-right"></i></a>
             <?php else: ?>
                 <i class="fa-solid fa-angle-right disabled"></i>
                 <i class="fa-solid fa-angles-right disabled"></i>

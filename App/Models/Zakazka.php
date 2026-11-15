@@ -8,13 +8,12 @@ class Zakazka extends Model
 {
     protected static ?string $tableName = 'zakazky';
 
-    protected static ?array $fillable = ['vozidlo', 'spz', 'zakaznik', 'stav', 'priorita', 'popis'];
+    protected static ?array $fillable = ['spz', 'zakaznik', 'stav', 'priorita', 'popis'];
 
     public const STAVY = ['Čaká', 'V oprave', 'Hotové'];
     public const PRIORITY = ['Nízka', 'Normálna', 'Vysoká'];
 
     protected ?int $id = null;
-    protected ?string $vozidlo = null;
     protected ?string $spz = null;
     protected ?string $zakaznik = null;
     protected ?string $stav = 'Čaká';
@@ -22,9 +21,6 @@ class Zakazka extends Model
     protected ?string $popis = null;
 
     public function getId(): ?int { return $this->id; }
-
-    public function getVozidlo(): ?string { return $this->vozidlo; }
-    public function setVozidlo(?string $vozidlo): void { $this->vozidlo = $vozidlo; }
 
     public function getSpz(): ?string { return $this->spz; }
     public function setSpz(?string $spz): void { $this->spz = $spz; }
@@ -40,4 +36,12 @@ class Zakazka extends Model
 
     public function getPopis(): ?string { return $this->popis; }
     public function setPopis(?string $popis): void { $this->popis = $popis; }
+
+    /**
+     * Vozidlo, ku ktorému zákazka patrí (načítané cez cudzí kľúč `spz`).
+     */
+    public function getAuto(): ?Auto
+    {
+        return $this->getOneRelated(Auto::class, 'spz');
+    }
 }

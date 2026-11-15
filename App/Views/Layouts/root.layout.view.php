@@ -38,9 +38,19 @@
         <li><a href="<?= $link->url('home.contact') ?>">Kontakt</a></li>
         <li><a href="<?= $link->url('home.recenzie') ?>">Recenzie</a></li>
         <li><a href="<?= $link->url('home.onas') ?>">O nás</a></li>
-        <li><a href="<?= $link->url('home.sluzby') ?>">Služby <i class="fa-solid fa-caret-down"></i></a></li>
+        <li class="dropdown">
+            <button type="button" class="dropdown-toggle" tabindex="0">
+                Služby <i class="fa-solid fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu" tabindex="-1">
+                <li><a href="<?= $link->url('zakazka.index') ?>">Zoznam zákaziek</a></li>
+            </ul>
+            <ul class="dropdown-menu" tabindex="-1">
+                <li><a href="<?= $link->url('zakazka.index') ?>">Zoznam zákaziek</a></li>
+                <li><a href="<?= $link->url('auto.index') ?>">Zoznam vozidiel</a></li>
+            </ul>
+        </li>
         <li><a href="<?= $link->url('home.cennik') ?>">Cenník</a></li>
-        <li style="margin-left: auto;"><a href="<?= $link->url('home.index') ?>">SK <i class="fa-solid fa-caret-down"></i></a></li>
     </ul>
 </nav>
 
